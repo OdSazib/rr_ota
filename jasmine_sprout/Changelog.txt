@@ -1,0 +1,1044 @@
+
+Resurrection Remix Q Ver 8.6.3 Highlights
+=========================================
+- Fixed bluetooth audio device
+- Fixed audio in video recording
+- Kernel Updatremed to 4.4.240
+- Add Drivedroid Support
+- Compiled with LTO
+- Included twrp 3.3.1-5 (4pda version)
+- Added wipemenu for vendor+otg in twrp
+
+********************
+Full Changelogs
+====================
+     10-20-2020
+====================
+
+   * device/xiaomi/sdm660-common
+c9f0440e sdm660-common: disable A2DP offload * The device throws an error when connecting to audio devices over Bluetooth
+eebecca6 sdm660-common: Fix audio recording in video mode These files were pulled from one magisk module which fixes: - Low audio while recording video - Disorted audio and noise - Can record clear and loud audio afterward
+
+   * frameworks/base
+c9e300eca75 VolumeDialog: Follow system theme background
+6d638740d93 base: allow to disable in search settings bg tint [2/3]
+c705399e86b base:allow devices to Enable power menu advanced by default [1/2]
+0a75703f00d overlays: make searchbar icon follow proper tint
+e5cc14e76ff base: more searchbar styles [3/4]
+
+   * packages/apps/Settings
+66393a68a4 QS: Fix gradient color inconsistency
+f92adbf670 RRtools: disable in search preference if stock search style enabled
+a7f9d08a42 RRtools: reorganize switch styles
+b36c1eccbd RRtools:Allow to disable in fragment searchbar tint [1/3]
+2b4c6026e8 RRTools: allow devices to Enable power menu advanced by default [2/2]
+3fff1e6811 RRtools: Fix gradient incosistencies
+95cb923abf Settings: more searchbar styles [1/4]
+
+   * packages/apps/SettingsIntelligence
+2c34338 Allow to disable in fragment search bar bg tint [3/3]
+bb691af Cardview: follow settings search corner radius
+cfb34f0 SettingsIntelligence: Follow dashboard background for search
+
+   * packages/overlays/Resurrection
+abce78b overlays: Update pitchblack overlay for volume dialog
+8db42d9 Increase fod animation duration for whirlwind 2
+61a5a87 overlays: more searchbar styles [4/4]
+
+   * vendor/rr
+d2bccdbe vendor: More searchbar styles [2/4]
+
+====================
+     10-19-2020
+====================
+
+   * device/xiaomi/sdm660-common
+5288a61a sdm660-common: overlay: Update lineage-sdk overlay
+25f075bf sdm660-common: overlay: Enable adaptive sleep
+f3d33c01 sdm660-common: Add RR Wallpapers
+b6430277 sdm660-common: Add service-sysfs for LiveDisplay
+694f8df6 sdm660-common: Uprev android.hardware.soundtrigger to 2.2
+6e9354d6 sdm660-common: DeviceSettings: Fix derp of wrong symbol
+7ca9b125 sdm660-common: Add formatted="false" for multiple substitutions * Either fix the position of the multiple substitution * or add formatted="false" in non-positional localized string Bug: error: multiple substitutions specified in non-positional format;
+c539a533 sdm660-common: Bringup RR based on HMP * Revert some evo-specific commit * Replace evolution overlay wit rr-overlay * Disabled SysInfo node for RR * Adjust overlay with RR
+bbdfdc5f sdm660-common: doze: Reduce wakelock timeout and wakeup interval * Faster response in raise to wake getsure
+2fe927c2 sdm660-common: overlay: Set config_wifi_p2p_mac_randomization_supported
+72d5f45c sdm660-common: DeviceSettings/Doze: Update Translations
+9503f1af sdm660-common: overlay: Fix ambient-doze advanced settings * Ambient display can be accessed from lockscreen advnaced settings
+dd5e7130 sdm660-common: Tricking out device specific settings * Rebrand to DeviceDoze * Keep class for DeviceSettings
+ffd94924 sdm660-common: Fix smart-charging overlay and permission
+6c8ceeaa sdm660-common: Add new config overlay for call composer
+65a160e4 sdm660-common: rootdir: Set Netflix and media property based on target
+7979fe48 sdm660-common: init: Update ueventd rules and init rc for new audio drivers
+d08bec31 sdm660-common: config: Add permissions for RCS service
+68789387 sdm660-common: rootdir: Grant rw permission to hgsl node
+efee1af8 sdm660-common: Add IImsFactory and uceservice HAL entry
+63d46c83 sdm660-common: Update LPA interface version
+71125a73 sdm660-common: XiaomiParts: Add SELinux Switch
+1a8af026 sdm660-common: XiaomiDoze: Add drawable icons to doze menus! * EvoX edits: Match fill color with that of DeviceSettings * Added missing hand-wave drawable from: https://materialdesignicons.com/
+530a0cb0 sdm660-common: XiaomiDoze: Fix pickup status for raise to wake
+79f6e7bc sdm660-common: XiaomiDoze: Raise To Wake Gesture - Adapted to Xiaomi SDM660 - Implemented with tilt sensor
+473e16e7 sdm660-common: XiaomiDoze: Add Doze Tile - Launches DozeSettingsActivity
+22fd2eb9 sdm660-common: set Clang 11.0.1 for kernel
+984c002a sdm660-common: rootdir: Add proper permissions for dt2w nodes
+be3614de sdm660-common: update sepolicy and cleanup
+b78385f7 sdm660-common: overlay: Disable Battery Health Support
+24d47cf6 sdm660-common: overlay: Evolver: set maintainer strings
+d69af152 sdm660-common: Add dependencies
+1d87d9e5 sdm660-common: Add support for Battery Health * overlay: Adjust Battery Health sysfs nodes * Add SEPolicy for BatteryHealth
+1b63a2cc sdm660-common: overlay: Update overlay * Separate all EvolutionX overlay
+fd496604 sdm660-common: Nuke LineageOS overlays
+1f2f76f2 sdm660-common: Adopt EvolutionX
+71e85a8f sdm660-common: Drop snap package
+967c2a5c sdm660-common: Adding XiaomiParts into the whitelist * Adding XiaomiParts into whitelist to avoid it being killed by doze. Also granting necessary permission to function properly. * Required for Headphone & Mic Gain as it currently get killed
+9bd430ff sdm660-common: XiaomiParts: Add Headphone & Mic Gain
+7580f5f6 sdm660-common: XiamiParts: Add FPS Info Overlay
+471da74c sdm660-common: XiaomiParts: Remove dirac completely * Fix XiaomiPart crash while using audio mod like v4a/dolby
+dd14ca3e sdm660-common: Address denials for Livedisplay Signed-off-by: odsazib <odsazib@gmail.com>
+492d4362 sdm660-common: Downgrade qti-telephony-common to LA.UM.8.2.r1-05100-sdm660.0
+2a27848f sdm660-common: overlay: Remove doze Autobrightness values
+dd312ced sdm660-common: Back to tulip
+f19d201c sdm660-common: prop: Disable a2dp offload by default
+ab091868 sdm660-common: overlay: Rework doze Autobrightness values
+f80d6e2c sdm660-common: prop: Set Perf related Props from sdm660
+5f8b253a sdm660-common: Don't advertise vorbis offloading support
+fd91207b IMS: Filter out the conference host in the CEP for some carriers
+712e313a sdm660-common: data-ipa-cfg-mgr: Merge tag 'LA.UM.8.2.r1-06900-sdm660.0'
+a0782428 IMS: Enable IMS feature flags for supported carriers
+3d320acd sdm660_64: perf hal support
+dd6af2e3 Add RRO Target flag for falcon_64
+83ee96a9 sdm660-common: Exclude Snap overlays from RRO
+963a1198 sdm660-common: Exclude lineage-sdk overlays from RRO
+a9e3c5a4 sdm660-common: Enforce RRO for all resource overlays
+1631a1e2 sdm660-common: allow auto-brightness while in doze
+a85c69a8 sdm660-common: Switch to QTI bt stack and enable a2dp offload
+cf25291f sdm660-common: Change USB autosuspend delay to 7s by commandline.
+6b0f504b sdm660-common: wifi: remove duplicated configs
+3c89fae5 sdm660-common: whyred: init: Add custom init to set proper variants (#55)
+3648c482 qcom : device : Update static iuicc names in device
+96821587 Adding com.skyhook.blp into the whitelist
+315e1150 init.qcom.usb.sh: Set USB default composition to 9091
+426130ce sdm660-common: overlay: Limit alpha compositing functionality
+05390da3 sdm660-common: Parts: Calculate expotenial LED Brightness slider values
+56e1c005 sdm660-common: Don't set ro.alarm_boot
+6c2913c9 sdm660-common: add qcom early boot script
+3c2614ac sdm660-common: rootdir: always use lz4 for compression
+fa33bc54 sdm660-common: rootdir: migrate tunables from post-boot to init.performance.sdm660
+aa46d9b4 sdm660-common: rootdir: cleanup init.qcom
+302d73e8 sdm660-common: Drop CAF Adaptive LMK script
+296434f9 sdm660-common: Switch lmkd to use minfree levels for kill decisions
+dc9f4bce sdm660-common: Increase ro.lmk.medium to prevent kills at medium vmpressure
+0ae4662a sdm660-common: Update lmkd configuration properties
+2ab6731d sdm660-common: Disable PPR on all targets
+78d7c8c4 sdm660-common: Add 2 more notification icons
+613d4ac1 sdm660: props: enable zygote preforking
+a43b71b1 sdm660-common: Make FM radio opt-in
+24695c12 sdm660-common: Use Qcrild from  LA.UM.8.2.r1-06500-sdm660.0
+aa833777 sdm660-common: Update blobs from LA.UM.8.2.r1-06700-sdm660.0
+
+   * packages/apps/Settings
+94aa7e8639 RR tools: Add some fod animations [2/2]
+c2554afe04 Settings: tweak search and contextual card even further
+49e32e11fa RRtools: Reset some defaults
+
+   * packages/overlays/Resurrection
+dd745a9 overlays: Add some FOD animations [1/2]
+
+   * system/core
+a11b2c2d5 Modifying /dev/memcg permissions.
+a66d032d1 lmkd: add EPOLLWAKEUP event for PSI polling
+cf6d5a933 rr:special tombstone delivery
+2ffa089b0 init: ro.build.selinux should be 0
+41f87c076 init: add several more keys to spoof
+23fe18c0a init: workaround SafetyNet check
+7a2fb5274 init: Weaken property override security for the init extension
+
+   * vendor/xiaomi/sdm660-common
+5c91c9a sdm660-common: Fix audio recording in video mode These files were pulled from one magisk module which fixes: - Low audio while recording video - Disorted audio and noise - Can record clear and loud audio afterward
+
+====================
+     10-18-2020
+====================
+
+   * frameworks/base
+32294972195 base: Refresh tiles when setting QS label tint as well
+ce0af56129f base: Build searchbar styles[2/4]
+bfe2be6fe7f base: Add Resurrection clear theme 2 [1/4]
+4d8175b9a5e base: optional vibration when battery saver enabled [1/2]
+
+   * kernel/xiaomi/sdm660
+ceca3b568f2b defconfig: Enable DriveDroid Storage Support
+9fcabb8ac2b0 Add Drivedroid Support
+e022e9d40502 Merge 4.4.240 from https://github.com/android-linux-stable/msm-4.4 * ALS: https://github.com/android-linux-stable/msm-4.4 * Branch: kernel.lnx.4.4.r38-rel
+e9cebceb76ef Merge 4.4.240 into kernel.lnx.4.4.r38-rel
+d98913ec3269 Linux 4.4.240
+df439d2680b8 crypto: qat - check cipher length for aead AES-CBC-HMAC-SHA
+71ad78026008 spi: unbinding slave before calling spi_destroy_queue
+265e6dc04875 reiserfs: Fix oops during mount
+0d6877c37dc0 reiserfs: Initialize inode keys properly
+11b63afba323 USB: serial: ftdi_sio: add support for FreeCalypso JTAG+UART adapters
+e199fc5a68cd USB: serial: pl2303: add device-id for HP GC device
+54202ff16a3b staging: comedi: check validity of wMaxPacketSize of usb endpoints found
+38183676344f USB: serial: option: Add Telit FT980-KS composition
+76e5c961c19a USB: serial: option: add Cellient MPL200 card
+cd77a65cb140 media: usbtv: Fix refcounting mixup
+cbb6274d5b72 Bluetooth: Disconnect if E0 is used for Level 4
+0ae6ea94c69d Bluetooth: Fix update of connection state in `hci_encrypt_cfm`
+554ab8c6e143 Bluetooth: Consolidate encryption handling in hci_encrypt_cfm
+8bcbf0502aec Bluetooth: fix kernel oops in store_pending_adv_report
+5abe9f99f512 Bluetooth: MGMT: Fix not checking if BT_HS is enabled
+e7b465bda9b9 Bluetooth: A2MP: Fix not initializing all members
+
+   * lineage/mirror
+69d4251 Updated aosp-minimal to 17-Oct-2020 12:01 UTC
+
+   * packages/apps/Settings
+9fa7f6e630 Update theme strings
+1aa04c91a1 Settings: bump RR version to 8.6.3 [1/2]
+3e2cdf6eeb RR tools: Fix dashboard settings inconsistencies
+d4e5d0cbc2 Settings: Dashboard searchbar styles and corner radius [4/4]
+a389306a73 Settings: tweak searchbar and contextual card
+ba1041d318 PowerUsageSummary: Update smart battery settings icon
+371a472070 Settings: make searchbar follow corner radius
+616cc0cad8 RRtools: Add Resurrection Theme 2 [3/4]
+2a70dc08d2 RRtools: optional vibration when battery saver enabled [2/2]
+
+   * packages/apps/Trebuchet
+af65ef3c8 Revert "Provider: Initialize createEmptyRowOnFirstScreen without QSB"
+
+   * packages/overlays/Resurrection
+f5ee103 RR Clear theme : Update notif clear all color
+e918d88 overlays: Settings searchbar styles [3/4]
+1ad9790 overlays: Add Resurrection Clear theme 2[4/4]
+
+   * vendor/rr
+5ba17eda Bump RR version 8.6.3 [2/2]
+e7559011 vendor:Build Settings searchbar styles [1/4]
+2462fa63 vendor: Add RR clear theme 2 [3/4]
+
+====================
+     10-17-2020
+====================
+
+   * frameworks/base
+d985b1d6d26 Fix Google dialer FC due to missing permissions
+429d5f368c9 base: Fix qs tile tints not working on default tiles
+
+   * lineage/mirror
+d6f88f8 Updated aosp-minimal to 16-Oct-2020 12:01 UTC
+
+   * lineage/wiki
+52132a0 wiki: MIUI dev -> MIUI weekly
+
+   * packages/apps/Settings
+5c052095ed Add Poco X3 NFC (surya) (#1247)
+
+   * packages/apps/TvSettings
+1337f969 Settings: Replace local string res with the ones from the SDK
+
+   * packages/services/OmniJaws
+207e10b Omnijaws: widget: Uncouple the temperature from the image
+
+====================
+     10-16-2020
+====================
+
+   * frameworks/base
+f1769913947 base: Fix Volume ringer icon color in landscape mode
+86f54e157a8 SystemUI: fix gaming-mode tile failed to action on/off itself (#288)
+073ab899f3e base: separate applying systemui and settings icons from RR themes [1/2]
+
+   * kernel/xiaomi/sdm660
+ac16f134619f gitignore: Ignore out directory
+f1ac88631341 Branding: HALCYON-HMP KERNEL * Rebased on CAF 'LA.UM.8.2.r2-02700-sdm660.0' TAG * WiFi from CAF 'LA.UM.7.2.r1-09300-sdm660.0' TAG * Merged branch 'kernel.lnx.4.4.r38-rel' of ALS * Wireguard version: "1.0.20200908" * Merged EXT4, F2FS, EXFAT from mainline sources
+68d54e6348c2 wayne: defconfig: Migrate to new Camera
+dc9a2592f977 camera_v2: Restore old behaviour for frame drops
+1a7d76850aa8 camera_v2: msm_ispif: Increase timeout to 10 seconds from 1 second.
+9ed1d782c3dc proc: cmdline: Update patch_flags for SafetyNet
+01fa36e8f7de proc: oom: drop bogus task_lock and mm check
+4ff5dcabbafa configs: Enable CONFIG_CPU_FREQ_SWITCH_PROFILER
+0e36cc7fc0ea configs: sdm660: Disable kernel lowmemorykiller driver
+88aeb4a1bcc0 configs: sdm660: enable wireguard
+4e9368213c75 configs: qpnp-haptic: Add config for Xiaomi haptic changes
+76178f74a7d5 ARM: dts: jasmine: checkout haptics from jasmine kernel release
+d5e87e9e87c0 ARM: dts: qcom: Checkout CAF haptics dts for wayne
+83ddda26d398 ARM: dts: sdm636: fix haptics
+cd7d0ab738c3 ARM: dts: Disable verity for vendor
+d8f4a92d2608 ARM: dts: sdm660: Set GPU idle timeout to 64 ms
+bc47e0dfe36b ARM: dts: sdm660: Disable unhandled or broken IRQ monitoring
+7572ef45deb6 ARM: dts: sdm660: Suppress verbose output during boot
+474c7a93e375 ARM: dts: lavender: drop avb
+54f68b9e5f88 ARM: dts: increase linux,cma from 32M to 128M
+41dc1745c268 ARM: dts: Fix node values for qcom,msm-core@780000
+a9c9f79e76c3 ARM: dts: jasmine: Follow stock for brightness values
+b1e8868e8c92 Revert "msm: mdss: Set MDSS_MAX_BL_BRIGHTNESS to 4095 on Xiaomi 660 devices"
+8668122d62d1 mdss: change recovery tries to 3
+8ae13b7045f4 mdss: mdp: Default to 270 kcal saturation
+68aaf36b75a7 mdss: livedisplay: Allow independent CABC command
+22a077ae20ff mdss: livedisplay: Fix memory leaks in mdss_livedisplay_update()
+7448bbb53c0b video: mdss: LiveDisplay driver
+27bb9822bbae driver/power: smb-lib: Silence spammy debugging
+93629bad71da drivers: misc: implement usb fast charge mode
+3e4db49dfbec drivers: gpu: Increase adreno bus data limit
+f5e8007d184f drivers/thermal: msm_thermal: ignore sensor -19
+6a10595b05ed drivers/thermal: msm_thermal: initialize later than arch drivers
+7324841f5b8a drivers/thermal: Import Xiaomi changes
+000226a2f1ad drivers/media/platform: remove calls to trace_printk
+5a789d2d6aa6 drivers: power: qcom: battery: Do not pr_info on pl_dbg
+f586b919854f driver: cpuidle: don't disable cpuidle when entering suspend
+5b7313981fdb drivers: cpufreq: Implement xiaomi power key input boost feature
+4c645f19ab15 CHROMIUM: sched/fair: Kill spam about max cpu_capacity
+184eb23f8d85 irq: Silence IRQ CPU migration message
+3529c61fa035 power: don't ever reboot to verity red
+6302295a9f0b power: process: decrease time to enter sleep
+4b991d08ade4 power: Silence leftover spammy logger
+7a01b318a3de power: supply: Remove duplicate const specifier
+89901d651687 power: reset: allow device to preserve memory on restart
+7b7fc8086dce power: reset: Move in_panic handling out of dload mode
+f517102b9514 power: qpnp-smb2 & smb-lib: Remove debug prints
+a7a50c23ca08 msm: vidc: kill opening/closing video instance logspam
+ebd8dc4203f3 config: sdm660: Enable Sound Control
+760c9e5ceef0 sound: sdm660_cdc: add sound control
+2fbd132ac686 sound: soc: Reduce log spam
+c5236a28b9a7 sound: slimbus: increase frequency to avoid stutters on HiFi playback
+b0d6cf53c8b3 sound/soc: dsp: asm: improve misleading logs
+0f5ae32a796c ASoC: msm: qdsp6v2: Make version checking no-op
+a0599f484c6f soc: do not call trace_printk on non-debug build
+dd67c79a4d75 mmc: disable SPI CRC
+ec67d7355747 diag: Set socket CDSP enum value same as CDSP diag macro
+13b9d7d29739 net: netfilter: Implement a fix for TTL on MIUI
+01335aafc232 HACK: arm64: add CNTPCT_EL0 trap handler
+c52451c200dc include/uapi/linux/if_pppox.h: include linux/if.h
+c4264a93bca2 Merge 4.4.239 into kernel.lnx.4.4.r38-rel
+
+   * lineage/mirror
+f8d0a3f Updated aosp-minimal to 15-Oct-2020 12:01 UTC
+
+   * packages/apps/Etar
+7cfefcd8 Automatic translation import
+
+   * packages/apps/LineageParts
+46c7272 Parts: allow single tap doze to work without depending on ambient display
+
+   * packages/apps/Messaging
+e657521 Messaging: Enable heads up by default
+
+   * packages/apps/Nfc
+3b393bfd Automatic translation import
+
+   * packages/apps/Settings
+5895de9f8a Fix build
+1a1c53aab1 QS: Fix default background opacity
+403e0bcaa7 Add Moto Z2 Force (nash) (#1246)
+f510f44d56 RR tools: separate applying systemui and settings icons from RR themes [2/2]
+
+   * packages/apps/Stk
+7fc8734 Automatic translation import
+
+   * packages/apps/Trebuchet
+1f8713cf5 Automatic translation import
+
+   * packages/apps/TvSettings
+d4b71c53 Automatic translation import
+
+   * packages/inputmethods/LatinIME
+e1cf71186 Automatic translation import
+
+   * packages/screensavers/Basic
+526d626 Automatic translation import
+
+   * packages/screensavers/PhotoTable
+b87fd51 Automatic translation import
+
+   * packages/wallpapers/LivePicker
+5b6b44c Automatic translation import
+
+====================
+     10-15-2020
+====================
+
+   * frameworks/base
+2dedcca838e SystemUI: update auto brightness icons from OOS 10.0.11 hotdog
+e287608b0e3 Tuner: Correct default value for AOD
+0f963b5cdf6 base: Fix some defaults [1/2]
+a9810dc1c0c SystemUI: tuner string update
+0a4e68cea5e base:Lockscreen media code optimization
+cbb66409180 KeyguardSlice: Fix ticker appearing for a split second on lockscreen
+2b373e307a8 Keyguard: Disable transition animations by default
+c501003febe FODAnimation: Change animation visibility handle
+8d326832652 SystemUI: fix lockscreen default shortcut string
+4d26883d1cf base: Stock Volume dialog tint styles [1/4]
+
+   * kernel/xiaomi/sdm660
+08e290674368 Linux 4.4.239
+b2ae876677d7 net: usb: rtl8150: set random MAC address when set_ethernet_addr() fails
+e5e3293bd5a0 rxrpc: Fix server keyring leak
+74c09469251b rxrpc: Downgrade the BUG() for unsupported token type in rxrpc_read()
+bccdc2fd68a6 rxrpc: Fix rxkad token xdr encoding
+aaf8fe791e16 bonding: set dev->needed_headroom in bond_setup_by_slave()
+d4fc45e32b8d xfrm: Use correct address family in xfrm_state_find
+4c30fd07ca40 net: stmmac: removed enabling eee in EEE set callback
+b932860a1168 xfrm: clone whole liftime_cur structure in xfrm_do_migrate
+62457d397b90 xfrm: clone XFRMA_REPLAY_ESN_VAL in xfrm_do_migrate
+9b9dcd96e5b4 mtd: nand: Provide nand_cleanup() function to free NAND related resources
+557d674f48c7 net: team: fix memory leak in __team_options_register
+2c67cd9cfbaa team: set dev->needed_headroom in team_setup_by_port()
+1e33ef76e155 sctp: fix sctp_auth_init_hmacs() error path
+e60a4ee690f1 perf top: Fix stdio interface input handling with glibc 2.28+
+c8e50ece3d61 driver core: Fix probe_count imbalance in really_probe()
+fed8fd79e38f platform/x86: thinkpad_acpi: re-initialize ACPI buffer size when reuse
+07559a8f5294 platform/x86: thinkpad_acpi: initialize tp_nvram_state variable
+16f015675a23 usermodehelper: reset umask to default before executing user process
+785ef2d0c549 net: wireless: nl80211: fix out-of-bounds access in nl80211_del_key()
+0e3e69e0a8bc fbcon: Fix global-out-of-bounds read in fbcon_get_font()
+17b0824cffb9 Revert "ravb: Fixed to be able to unload modules"
+d737dd43ab1a Fonts: Support FONT_EXTRA_WORDS macros for built-in fonts
+ca308ad621a8 fbdev, newport_con: Move FONT_EXTRA_WORDS macros into linux/font.h
+3f5bfa0a2c34 netfilter: ctnetlink: add a range check for l3/l4 protonum
+97f8be925b06 ep_create_wakeup_source(): dentry name can change under you...
+199140bc63cd epoll: EPOLL_CTL_ADD: close the race in decision to take fast path
+648bffab7616 epoll: replace ->visited/visited_list with generation count
+ea984dfe0e79 epoll: do not insert into poll queues until all sanity checks are done
+9bef609e85ce i2c: cpm: Fix i2c_ram structure
+95fd9f7ac0dc iommu/exynos: add missing put_device() call in exynos_iommu_of_xlate()
+695e83a1ff2b clk: samsung: exynos4: mark 'chipid' clock as CLK_IGNORE_UNUSED
+c8bf391fcdd1 nfs: Fix security label length not being reset
+eaf09b94a7d7 drivers/net/wan/hdlc: Set skb->protocol before transmitting
+a8e3971f6205 drivers/net/wan/lapbether: Make skb->protocol consistent with the header
+4724c2273c70 rndis_host: increase sleep time in the query-response loop
+45a545d3ce64 net: dec: de2104x: Increase receive ring size for Tulip
+50f6a5f99664 drm/amdgpu: restore proper ref count in amdgpu_display_crtc_set_config
+e07ac9b7f5f2 Input: i8042 - add nopnp quirk for Acer Aspire 5 A515
+c5d3bcee7362 gpio: tc35894: fix up tc35894 interrupt configuration
+
+   * packages/apps/LineageParts
+5db40cb LineageParts: Add some icons
+
+   * packages/apps/Settings
+cdd4208845 Update notification fragment icon
+0723bf26cc RR tools: Fix screenshot delay default value [2/2]
+cc5f278765 strings: update
+261625fca3 Settings: Add some icons to certain preferences
+7fc7ecdd28 RR tools: Stock Volume dialog tint styles [4/4]
+
+   * vendor/rr
+0030a08f Delete readme
+
+====================
+     10-14-2020
+====================
+
+   * frameworks/base
+93ab0273ae4 Add button to AppErrorDialog to upload crash information to dogbin
+e5be0d6d883 SystemUI: restart timeout causes black screen
+e447564ce6e [DO NOT MERGE] VibratorService: bypass AppOps check
+
+   * kernel/xiaomi/sdm660
+45d1a774538f f2fs: use a seperate mutex for setting wakelock
+9eabd3e60f22 f2fs: unlock wakelock properly when f2fs_stop_rapid_gc() is called
+70ee88dfadcd f2fs: catch a global wakelock instead of per gc_kthread
+779f0a897c1d f2fs: improve naming schemes for rapid GC
+6104889666f3 f2fs: mark gc_threads() functions as static
+db248e719802 f2fs: don't wait with each discards under gc_urgent
+ca315d653073 f2fs: use a more reasonable discard policy for high utilization
+cf76676c5403 f2fs: reduce timeout for uncongestion on f2fs_write_cache_pages()
+482ec435531b f2fs: rename /sys/fs/f2fs
+0e5e3c4808ce f2fs: do not expose tunables that doesn't work with rapid GC
+5b9cfb49678b f2fs: drop caches upon rapid GC exit
+4e572f664414 fs: drop_caches: expose mm_drop_caches()
+020c3aa34eb3 f2fs: explicitly flush device upon foreground GC
+dab6520421d4 f2fs/rapid_gc: do not wait until all invalid blocks are discarded
+f0c7a111dc3b f2fs: convert wakelock APIs to wakeup_source
+31b2aeee32e0 f2fs: implement rapid GC for Android
+4695e3b1069b f2fs: set ioprio of GC kthread to idle
+e2fac9d08dd0 f2fs: fix wrong discard space
+8b93a7ae1414 f2fs: fix wrong value of tracepoint parameter
+671a9d4c062f f2fs: protect new segment allocation in expand_inode_data
+d31cd5a931b8 f2fs: avoid inifinite loop to wait for flushing node pages at cp_error
+78f4222a222b f2fs: remove redundant assignment to variable err
+4711784319bd f2fs: Avoid double lock for cp_rwsem during checkpoint
+e3123710f86b f2fs: Fix wrong stub helper update_sit_info
+92745ca82360 f2fs: remove blk_plugging in block_operations
+6c242d41b636 f2fs: shrink spinlock coverage
+f244186ad10f f2fs: correctly fix the parent inode number during fsync()
+b0ad94eb30f2 f2fs: flush dirty meta pages when flushing them
+2f48c5475e83 f2fs: fix checkpoint=disable:%u%%
+a74e48408024 f2fs: don't leak filename in f2fs_try_convert_inline_dir()
+a743151dbf84 f2fs: fix quota_sync failure due to f2fs_lock_op
+7ea08a34b086 f2fs: fix to handle error path of f2fs_ra_meta_pages()
+4a5319bbb4f8 f2fs: fix long latency due to discard during umount
+619a00a4aa86 f2fs: switch discard_policy.timeout to bool type
+fbb12940a7b8 f2fs: fix potential .flags overflow on 32bit architecture
+507e7c663cf6 f2fs: don't change inode status under page lock
+032ff600245d f2fs: delete DIO read lock
+2f5d858b9817 f2fs: xattr.h: Replace zero-length array with flexible-array member
+79ebcaa09561 f2fs: skip GC when section is full
+1315f2b66a4c f2fs: fix the panic in do_checkpoint()
+b62ac266dc16 f2fs: fix to wait all node page writeback
+b153bd569b3d f2fs: Add f2fs stats to sysfs
+362424704651 f2fs: delete duplicate information on sysfs nodes
+7336c8c271cf f2fs: change to use rwsem for gc_mutex
+af7b6e39981b f2fs: update f2fs document regarding to fsync_mode
+3d94505efeaa f2fs: add a way to turn off ipu bio cache
+a3d8e0ad40cb f2fs: code cleanup for f2fs_statfs_   *()
+0e8d8596f2df f2fs: fix miscounted block limit in f2fs_statfs_   *()
+a080cc4990fc f2fs: show the CP_PAUSE reason in checkpoint traces
+c28c7df3bb79 f2fs: remove unneeded check for error allocating bio_post_read_ctx
+5d828b7ffa92 f2fs: convert inline_dir early before starting rename
+c7b660cf731c f2fs: fix memleak of kobject
+53f8d70c60a4 f2fs: fix to add swap extent correctly
+99aa3c0b7c36 mm: export add_swap_extent()
+4aa72efd9ff2 f2fs: run fsck when getting bad inode during GC
+cde59c7f8138 f2fs: free sysfs kobject
+84445c70a969 f2fs: declare nested quota_sem and remove unnecessary sems
+97d46492c391 f2fs: don't put new_page twice in f2fs_rename
+8812f82d9ab7 f2fs: set I_LINKABLE early to avoid wrong access by vfs
+8f7e6fce54f8 f2fs: introduce private bioset
+6f1ceaec35aa f2fs: cleanup duplicate stats for atomic files
+f039d8646c66 f2fs: set GFP_NOFS when moving inline dentries
+ec33bd37a3f0 f2fs: should avoid recursive filesystem ops
+3cfed1fe6269 f2fs: keep quota data on write_begin failure
+862ee6c23357 f2fs: call f2fs_balance_fs outside of locked page
+53dcb8995e7b f2fs: preallocate DIO blocks when forcing buffered_io
+9fc43b93e384 f2fs: stop GC when the victim becomes fully valid
+8f70c8d647d9 f2fs: expose main_blkaddr in sysfs
+4b6a5d08d4f3 f2fs: choose hardlimit when softlimit is larger than hardlimit in f2fs_statfs_   *()
+a28252c1789d f2fs: Fix deadlock in f2fs_gc() context during atomic files handling
+4e0f6e667893 f2fs: show f2fs instance in printk_ratelimited
+e30ca4f123e1 f2fs: fix potential overflow
+d7105b4b1e63 f2fs: fix to update dir's i_pino during cross_rename
+818f14b11a16 f2fs: support aligned pinned file
+77bd24251dbb f2fs: avoid kernel panic on corruption test
+63e9ddeeae11 f2fs: fix wrong description in document
+9767134d31f7 f2fs: cache global IPU bio
+430b13176ea3 f2fs: check total_segments from devices in raw_super
+b2eaa7db8c38 f2fs: update multi-dev metadata in resize_fs
+9137eafbde40 f2fs: mark recovery flag correctly in read_raw_super_block()
+042f421cd814 f2fs: fix to update time in lazytime mode
+83a352f6dce6 f2fs: add a condition to detect overflow in f2fs_ioc_gc_range()
+6e193106af27 f2fs: fix to add missing F2FS_IO_ALIGNED() condition
+0c7770fba5da f2fs: fix to fallback to buffered IO in IO aligned mode
+d5f99f3ac280 f2fs: fix to handle error path correctly in f2fs_map_blocks
+543d0c4dd68d f2fs: fix extent corrupotion during directIO in LFS mode
+3426a4d9ce18 f2fs: Add a small clarification to CONFIG_FS_F2FS_FS_SECURITY
+9de12bde713f f2fs: fix inode rwsem regression
+495b9757e283 f2fs: fix to avoid accessing uninitialized field of inode page in is_alive()
+d76c27b89a8c f2fs: Fix indefinite loop in f2fs_gc()
+ad96d2c96119 f2fs: convert inline_data in prior to i_size_write
+9329d5e8be42 f2fs: fix error path of f2fs_convert_inline_page()
+00ae04b0c2c0 f2fs: add missing documents of reserve_root/resuid/resgid
+222a046b098a f2fs: fix flushing node pages when checkpoint is disabled
+cfa8247c1fea f2fs: enhance f2fs_is_checkpoint_ready()'s readability
+943b3e83a9c6 f2fs: clean up __bio_alloc()'s parameter
+a16d79e2d254 f2fs: fix wrong error injection path in inc_valid_block_count()
+d33d6f185976 f2fs: fix to writeout dirty inode during node flush
+3d0c150edb79 f2fs: Fix indefinite loop in f2fs_gc()
+cc7b40e9c0e7 f2fs: allocate memory in batch in build_sit_info()
+e9373b1034d0 f2fs: fix to avoid data corruption by forbidding SSR overwrite
+fe34dd44f736 f2fs: cleanup the code in build_sit_entries.
+9026f5603df7 f2fs: fix wrong available node count calculation
+f0fe26df8f2d f2fs: remove duplicate code in f2fs_file_write_iter
+388709106419 f2fs: fix to migrate blocks correctly during defragment
+3650ea75120c f2fs: use wrapped f2fs_cp_error()
+995f5fddff72 f2fs: fix to use more generic EOPNOTSUPP
+28fc3c88b9f5 f2fs: use wrapped IS_SWAPFILE()
+f6c62e07231e f2fs: fix to avoid call kvfree under spinlock
+eed404b55c46 fs: f2fs: Remove unnecessary checks of SM_I(sbi) in update_general_status()
+dc15adea9ecd f2fs: disallow direct IO in atomic write
+de65ba8f7c64 f2fs: fix to handle quota_{on,off} correctly
+e3d878e6abc3 f2fs: fix to detect cp error in f2fs_setxattr()
+4c999f02798b f2fs: fix to spread f2fs_is_checkpoint_ready()
+fbaa45eee7d9 f2fs: support fiemap() for directory inode
+74454d7e6e02 f2fs: fix to avoid discard command leak
+e6e2c5e194e0 f2fs: disallow switching io_bits option during remount
+9927388475dd f2fs: fix panic of IO alignment feature
+416ed1ff3be1 f2fs: introduce {page,io}_is_mergeable() for readability
+cdc726a6d6e1 f2fs: fix livelock in swapfile writes
+0975f4d00f8a cfq: clear queue pointers from cfqg after unpinning them in cfq_pd_offline
+b32ed5b08e2f block: replace io_schedule with io_schedule_timeout
+b4c7437594be kernel/fs: fix I/O wait not accounted for RW O_DSYNC
+16788e2f144b UPSTREAM: block: silently forbid sending any ioctl to a partition
+30380b1b781b cfq-iosched: temporarily boost queue priority for idle classes
+395d63f658c6 block, scheduler: convert xxx_var_store to void
+1d32fa9fd049 block/cfq: cache rightmost rb_node
+8b53cde2c235 rbtree: cache leftmost node internally
+4b12f2c1de5c block/cfq: replace cfq_rb_root leftmost caching
+6cae55b5f95e BACKPORT: block: use ktime_get_ns() instead of sched_clock() for cfq
+112676819c16 cfq-iosched: fix the delay of cfq_group's vdisktime under iops mode
+84ad9b1ae2b2 cfq-iosched: Delete unused function min_vdisktime()
+83e119fa88b6 cfq-iosched: Adjust one function call together with a variable assignment
+2e1e94434bcb block: Initialize cfqq->ioprio_class in cfq_get_queue()
+f28318c32e0d block: do not merge requests without consulting with io scheduler
+ad0293f934dd cfq-iosched: Charge at least 1 jiffie instead of 1 ns
+abda3b0d4574 cfq-iosched: Fix regression in bonnie++ rewrite performance
+0249934a83dd cfq-iosched: Convert slice_resid from u64 to s64
+263d14fd0a49 cfq-iosched: Convert to use highres timers
+769ed6c76855 cfq-iosched: Expose microsecond interfaces
+c95e3fb2db58 cfq-iosched: Convert from jiffies to nanoseconds
+832702a41512 cfq-iosched: Allow parent cgroup to preempt its child
+2790aacb392f cfq-iosched: Allow sync noidle workloads to preempt each other
+b334d2c870fd cfq-iosched: Reorder checks in cfq_should_preempt()
+37689f940cb7 cfq-iosched: Don't group_idle if cfqq has big thinktime
+885ab4f5dc74 proc: cmdline: Patch SafetyNet flags
+f560aa2fd898 configs: Enable KCAL
+0565e44e06d2 msm: mdss: KCAL: disable igc update
+10075313a91d mdss mdp: kcal for mdss_mdp_v1_7
+6a277ba5ec7d configs: Enable SUSPEND_SKIP_SYNC
+cd1004845158 configs: Use Westwood+ TCP congestion algorithm by default
+dbf79337c4df zram: Do not allow compression algorithm to be changed
+389791048c4e configs: Use lz4 for zram compression
+94949b6745fa zram: Move default compression algorithm choice to Kconfig
+ef61ce99d0fe leds: leds-qpnp: add synchronized rgb control
+488e4441bb77 pwm: qpnp-pwm: add api for synchronous enable of pwms
+cb9cf00c8762 configs: Disable debugfs
+dd82771423fa msm: vidc: Fix broken debugfs creation error checks and error paths
+0f96055c5bad soc: qcom: rpm_stats: Enable debugfs usage for wahoo
+ef108da755dd wakeup: Enable debugfs usage for Android even when debugfs is disabled
+bb7c4eb74eed debugfs: Always compile core debugfs driver for Android kernels
+cfc39958af98 arm64: kernel: Don't build perf_debug.o when debugfs is disabled
+f1acfc913a1a sound: max98937: Fix compile errors when debugfs is disabled
+aa721b68119b msm: mdss: Fix compile errors when debugfs is disabled
+ce39ae210585 ASoC: msm: qdsp6v2: Fix compile errors when debugfs is disabled
+c9108b9c8407 msm: thermal: Fix compile errors when debugfs is disabled
+b88ce32a3845 scsi: ufs: Fix compile errors when debugfs is disabled
+06bd3d778499 msm: sps: Fix compile errors when debugfs is disabled
+963e19623113 msm: ipa: Fix compile errors when debugfs is disabled
+55b3779d78d4 msm: sde: Fix compile errors when debugfs is disabled
+a34b97e169b5 clk: Fix compile errors when debugfs is disabled
+29ac7d90be9d firmware: qcom: Remove debugfs dependency from tz-log driver
+a131c8deb3d0 crypto: msm: Don't bail out when debugfs creation fails
+b74d85911245 qpnp-fg-gen3: Don't bail out when debugfs creation fails
+cb103e15dd72 input: touchscreen: Do not select Synaptics by default
+c7ed8b428067 qcacld-3.0: optimize for size
+eeb21059e519 sched/core: Properly fix constant logical operand Clang warning
+d253ca70c795 init: Kconfig: Don't force DEBUG_KERNEL when EXPERT is enabled
+6bb5e4f2b01d lib: Don't enable DEBUG_BUGVERBOSE by default
+1278454a385b configs: Disable BCL driver
+67ee7c163f08 configs: Disable unused errata fixes
+7594d29b1cef configs: Disable ACPI drivers
+7a5130a52619 crypto: Make CRYPTO_DEV_QCE depend on CRYPTO_DEV_QCRYPTO being disabled
+3f604f0fde24 kernel: Use the stock wahoo config for /proc/config.gz
+2dc81114b191 configs: Disable module support and regenerate
+674256fb6889 configs: Disable a few *_DEBUG drivers
+904f427889c4 configs: Remove CONFIG_IPC_LOGGING
+c6e154b2b4fa net: ipc_router: fix memleak with IPC_LOGGING disabled
+1d867a7c16f0 soc: qcom: Further fixes for !IPC_LOGGING for IPA, SMD, SMEM.
+427f5ffa3a5e tty: serial: Correct IPC_LOGGING ifdef
+40e758b28262 tty: serial: msm_serial_hs: fix sysfs create
+446d87e08a0c tty: serial: msm_serial_hs: fix ipclog spam
+9ed465b7dce5 soc: qcom: stop spam when IPC_LOGGING is disabled
+93549536f5f4 configs: Disable CONFIGFS_MASS_STORAGE
+a67871447544 configs: Disable NETWORK_FILESYSTEMS
+341310a39646 configs: Disable POWER_RESET_XGENE
+3b974cba8c33 configs: Disable SCSI_LOGGING
+618e338a909d soc: qcom: Remove now unused MSM_SMP2P_TEST
+85bbd763eb8b configs: Disable unused ramdisk compression support
+02a31c676f6b configs: remove unused kernel funtions
+7d922a3660c8 configs: disable QBT1000 driver
+18db176d473b configs: Disable MMC_TEST
+4faa2b07b266 configs: Disable UFS
+f35a666bd33f arm64/configs: configs: CONFIG_HZ_300=y
+39770a5ba45c configs: disable CONFIG_CC_OPTIMIZE_FOR_SIZE
+814818be1fe3 configs: remove unused kernel config
+6e94ebd90f3e configs: disable mdss xlog debug
+f00011bd83a6 configs: add various HID drivers
+44724aab622b configs: remove various debug config + DEVPORT
+8c49b9796054 defconfig: configs: disable SCHED_AUTOGROUP
+65fda2caaca5 configs: add CONFIG_HID_APPLE
+046a9ebdd0d7 configs: clean up configs and make savedefconfig
+0584249e7162 configs: align with security requirements
+d3ba25ea8c07 arm64/configs: configs: disable MSM_11AD
+9a1aa2fe76f8 configs: configs: enable jump label
+dc89c8ff5990 vmlinux.lds.h: Coalesce LLVM dead code elimination sections
+82ac2a34adb0 Makefile: Use O3 optimization level for Clang LTO
+42dbd74e6ceb Makefile: SDM660 Clang optimisation setup
+6df26d107bc6 configs: Disable QCOM MINIDUMP
+322384de2b4a UPSTREAM: arm64: relocatable: fix inconsistencies in linker script and options
+b2848054861a arm64: prevent regressions in compressed kernel image size when upgrading to binutils 2.27
+f43485680a99 arm64: kernel: force ET_DYN ELF type for CONFIG_RELOCATABLE=y
+c2c41115480d Fix build break for Argument list too long
+64e916a3d0a6 configs: Enable Clang LTO
+41be8771048d ANDROID: arm64: allow ThinLTO to be selected
+7b8236b5da16 ANDROID: kbuild: limit LTO inlining
+1490b96569a1 ANDROID: kbuild: merge module sections with LTO
+4a81ebec2ca1 ANDROID: init: ensure initcall ordering with LTO
+e6f6a8ab85ed ANDROID: add support for ThinLTO
+3f43fdd022a2 ANDROID: arm64: add atomic_ll_sc.o to obj-y if using lld
+7ca1c3d1a0bc ANDROID: kbuild: allow lld to be used with CONFIG_LTO_CLANG
+80d8226dd095 ANDROID: Makefile: set -Qunused-arguments sooner
+0a6356113698 BACKPORT: FROMLIST: Makefile: lld: tell clang to use lld
+97611cc446e6 BACKPORT: FROMLIST: Makefile: lld: set -O2 linker flag when linking with LLD
+75a8706263ff ANDROID: scripts/Kbuild: add ld-name support for ld.lld
+3c9ae69366ee BACKPORT: crypto: arm64/aes-ce-cipher - move assembler code to .S file
+9dfd2b7fe948 UPSTREAM: crypto: arm64/aes-ce-cipher: add non-SIMD generic fallback
+98c28ecb6938 UPSTREAM: crypto: arm64/aes-ce-cipher - match round key endianness with generic code
+dc0c26b9fc1f BACKPORT: crypto: arm64/aes - add scalar implementation
+e44bb6ba82ee arm64: Disable -fwhole-program for vDSO
+c5a749c0936c FROMLIST: BACKPORT: arm64: select ARCH_SUPPORTS_LTO_CLANG
+608ab14da608 arm64: sysreg: Make mrs_s and msr_s macros work with Clang and LTO
+4b47974447e3 FROMLIST: efi/libstub: disable LTO
+5c5be781077f FROMLIST: scripts/mod: disable LTO for empty.c
+38debf64129d FROMLIST: BACKPORT: kbuild: fix dynamic ftrace with clang LTO
+7607c04656a3 FROMLIST: kbuild: add support for clang LTO
+b957d6116b53 FROMLIST: kbuild: add ld-name macro
+52e8b38df0a1 FROMLIST: kbuild: add __ld-ifversion and linker-specific macros
+b8d774aaec0b FROMLIST: kbuild: add __cc-ifversion and compiler-specific variants
+639046e090de FROMLIST: kbuild: add clang-version.sh
+7bd1c4296533 kbuild: add arch specific post-link Makefile
+db25bf266355 kbuild: record needed exported symbols for modules
+ff27c3933a3a kbuild: Allow to specify composite modules with modname-m
+e87f522f5764 kbuild: improve linker compatibility with lib-ksyms.o build
+c9d56e6d0fed kbuild: cmd_export_list: tighten the sed script
+c44ba9ba1f99 [kbuild] handle exports in lib-y objects reliably
+35a5a5af7eb4 FROMLIST: BACKPORT: arm64: keep .altinstructions and .altinstr_replacement
+7e372a7e4986 arm64: fix LD_DEAD_CODE_DATA_ELIMINATION
+0d5488316b70 FROMLIST: kbuild: fix LD_DEAD_CODE_DATA_ELIMINATION
+40e05ae421e3 kbuild: linker script do not match C names unless LD_DEAD_CODE_DATA_ELIMINATION is configured
+e6a79dc44dfa kbuild: keep data tables through dead code elimination
+2fac40fab6fb kbuild: avoid conflict between -ffunction-sections and -pg on gcc-4.7
+13a7f76fe064 kbuild: -ffunction-sections fix for archs with conflicting sections
+26ad8db2c456 kbuild: allow archs to select link dead code/data elimination
+bd8b27de4847 kbuild: handle libs-y archives separately from built-in.o archives
+078e7697839f kbuild: thin archives make default for all archs
+a3a575de1ead kbuild: thin archives use P option to ar
+93470afcbba3 kbuild: thin archives for multi-y targets
+9960db9a2943 kbuild: thin archives final link close --whole-archives option
+7a1b4e02d2d7 kbuild: minor improvement for thin archives build
+afb46ddefd85 kbuild: allow architectures to use thin archives instead of ld -r
+bcd169230d64 soc/qcom: mpm-of: Remove __init declaration from mpm_irq_domain_size()
+0227613f9c9b ANDROID: configs: turn on VDSO
+9048aac03bb0 FROMLIST: arm64: Build vDSO with -ffixed-x18
+af9e1e536c20 ANDROID: clock_gettime(CLOCK_BOOTTIME,) slows down >20x
+a2cdbf2bb68d FROMLIST: arm64: vdso32: Use full path to Clang instead of relying on PATH
+5438e755b5af ANDROID: arm64: vdso32: fix CC=clang build
+c2d0f9e98016 ANDROID: CROSS_COMPILE_ARM32 must work if CONFIG_COMPAT_VDSO
+ec70c031386b FROMLIST: BACKPORT: [PATCH 6/6] arm64: Wire up and expose the new compat vDSO
+ad2795e2c5d3 FROMLIST: BACKPORT: [PATCH 5/6] arm64: compat: 32-bit vDSO setup
+5ee43f986069 FROMLIST: [PATCH 4/6] arm64: compat: Add a 32-bit vDSO
+697083298c1f FROMLIST: [PATCH 3/6] arm64: Refactor vDSO init/setup
+941316463349 FROMLIST: [PATCH 2/6] arm64: elf: Set AT_SYSINFO_EHDR in compat processes
+57445c7ebe2c FROMLIST: [PATCH 1/6] arm64: compat: Use vDSO sigreturn trampolines if available
+0b0e43a06733 FROMLIST: lib: vdso: add support for time
+5ebca46696cf FROMLIST: [PATCH] arm64: compat: Expose offset to registers in sigframes
+ddb77440ab30 FROMLIST: [PATCH v5 12/12] lib: vdso: do not expose gettimeofday, if no arch supported timer
+4f32b61a9b7e FROMLIST: [PATCH v5 11/12] lib: vdso: Add support for CLOCK_BOOTTIME
+19b5ee7cb773 FROMLIST: [PATCH v5 10/12] arm64: vdso: replace gettimeofday.S with global vgettimeofday.C
+b0fa7074a232 FROMLIST: [PATCH v5 09/12] arm: vdso: move vgettimeofday.c to lib/vdso/
+d189b5b9fcb3 FROMLIST: [PATCH v5 08/12] arm: vdso: Add ARCH_CLOCK_FIXED_MASK
+03695b3f1ed7 FROMLIST: [PATCH v5 07/12] arm: vdso: disable profiling
+6e80f68d2b7c FROMLIST: [PATCH v5 06/12] arm: vdso: add support for clock_getres
+796548b64d4b FROMLIST: [PATCH v6 05/12] arm: vdso: Add support for CLOCK_MONOTONIC_RAW
+2188f1962fc5 FROMLIST: [PATCH v5 04/12] arm: vdso: do calculations outside reader loops
+bc2a99688d0d FROMLIST: [PATCH v5 03/12] arm: vdso: inline assembler operations to compiler.h
+763446baf1d0 FROMLIST: [PATCH v5 02/12] arm: vdso: add include file defining __get_datapage()
+7ab276e068b0 FROMLIST: [PATCH v5 01/12] arm: vdso: rename vdso_datapage variables
+80241ebc0122 FROMLIST: [PATCH v2 3/3] arm64: compat: Add CONFIG_KUSER_HELPERS
+28dd1d0c1cd8 FROMLIST: [PATCH v2 2/3] arm64: compat: Split the sigreturn trampolines and kuser helpers (assembler sources)
+01d4ad26bd2e FROMLIST: [PATCH v2 1/3] arm64: compat: Split the sigreturn trampolines and kuser helpers (C sources)
+1898e9764d8c soc: qcom: qpnp-haptic: Fix misleading indentation warning
+77b8d93c5c0d soc: qcom: rpm_stats: Fix misleading indentation warning
+5d546a3065ba msm: mdss: Fix misleading indentation warning
+9d1032f8e098 soc: qcom: subsystem_notif: Fix suspicious indent
+ac96d182f073 slimbus: Add braces around suspicious indent
+33ca76cc5274 regulator: cpr3: Add braces around suspiciously indented code
+ef85b9ea0375 msm: ipa_v2: fix misleading indentation warning
+5ff907d3ee80 ASoC: msm: Fix suspicious indent
+029ed1d44921 msm: camera: isp40: Fix misleading indentation warnings
+9afea7f08d71 media: dvb: Fix -Wmisleading-indentation
+51b6c20b98ad leds: qpnp-wled: Fix suspicious indentation
+0c285a135110 drivers: sensors: bmi160: fix misleading-indentation
+8a19152fbe4e diag: Fix misleading indentation warning
+e1c0fa4a6c20 crypto: qce50: fix llvm compilation warnings
+38350417486c crypto: msm: Fix misleading indentation warning
+4aff951e8d1a ASoC: codecs: wcd9xxx-mbhc: Fix misleading indentation warning
+58aa04e9cad2 Revert "Makefile: Suppress few warnings with clang"
+75fbad8d9053 net: wireless: nl80211: ieee80211_band->nl80211_band
+15b2dffe9d36 cfg80211: Support backport of removing ieee80211
+97a2d6f73eb2 BACKPORT: cfg80211: remove enum ieee80211_band
+f0b920f8c591 arm64: arch_timer: simplify accessors
+64a15b16d37c Makefile: Use cc-option to disable Qualcomm defined features
+b09488436884 Revert "scripts: gcc-wrapper: Use wrapper to check compiler warnings"
+f7cc9b2765cd Revert "msm: kgsl: Mark the scratch buffer as privileged"
+4ae355dd85e3 md: disable dm-verity
+cb6b1ff179a6 defconfig: lavender: Disable KALLSYMS_ALL
+7f1dc915ee96 defconfig: lavender: Enable CONFIG_BUILD_ARM64_DT_OVERLAY
+07d33e79380f defconfig: xiaomi Disable unused modules
+6618cdb5f192 defconfig: xiaomi: Enable f2fs
+47ecd1628ea6 configs: Enable exFAT
+d6e517b5b690 defconfig: xiaomi: Enable WLAN
+02f826dc273d defconfig: xiaomi: Enable pstore
+080c6d668f61 defconfig: xiaomi: Disable sdm630
+37a5b154f0d4 defconfig: xiaomi: Import device specific configs
+41277c3d5731 defconfig: xiaomi: Initial devices configuration
+2383fa179c04 input: fingerprint: goodix: Respect capacitive keys state
+227357d0ce77 input: fingerprint: fpc1020: Respect capacitive keys state
+97b55210b60b input: fingerprint: goodix: Honor proximity state
+fb8cc113acc3 input: fingerprint: fpc1020: Honor proximity state
+de71e4c5e584 input: fingerprint: goodix: Add regulator control for gf3208
+b4725f26db5c input: fingerprint: goodix: Import Xiaomi changes
+f3fa3c8098fe input: fingerprint: Import goodix driver
+a87df3e7a5c1 input: fingerprint: fpc1020: Support MI board platforms
+c5a6040f16b0 input: fingerprint: fpc1020: Import Xiaomi changes
+c955f780edf4 input: fingerprint: fpc kernel driver code drop
+b50738817d83 msm: mdss: Set MDSS_MAX_BL_BRIGHTNESS to 4095 on Xiaomi 660 devices
+123d4b856cb9 msm: mdss: Import longcheer mdss changes
+7e8c39ace5ed msm: mdss: Import Xiaomi Mi board changes
+f468cec134a1 msm: thermal: Import Xiaomi MI changes
+cd2c3d6f6192 soc: qcom: watchdog_v2: Import Xiaomi MI changes
+7d97f62b0e27 soc: qcom: socinfo: Import Xiaomi MI changes
+2a01b1a8704b soc: qcom: sleepstate: Import Xiaomi MI changes
+7697907f7e82 soc: qcom: adsp-loader: Add Xiaomi MI changes
+40b207bf9105 media: rc: Import Xiaomi MI IR LED driver
+92c4ef620926 input: misc: Import elliptic driver
+7ecaa38faded ASoC: msm: Report correct key code of headset buttons
+66e87b2a2852 ASoC: Import Xiaomi MI changes
+cd15d6901eb4 sound: sdm660_cdc: tas2557: remove the obsoleted ioctl function
+7ad8b047fae1 ASoC: Import xiaomi longcheer changes
+052390a03d99 init: Import xiaomi longcheer changes
+682949015cb6 msm: qpnp-haptic: Port Xiaomi MI changes
+9d494d74c6d0 msm: qpnp-haptic: Import xiaomi longcheer changes
+f919c4a4c4c3 soc: qcom: haptic: Correct return value of show() methods
+942c18889d05 msm: qpnp-haptic: set up sysfs interface for common cmhw implementation
+b979b2f0794a msm: qpnp-haptic: Process haptics asynchronously
+774da7df63f3 usb: Import Xiaomi MI changes
+d5517cf87f27 usb: Import xiaomi longcheer changes
+256a5d694026 spi: Import xiaomi longcheer changes
+193f8578ee08 power: Import lavender changes
+8cd69e3edeea power: Import Xiaomi MI board changes
+fdb2977235bc power: Import xiaomi longcheer edits
+fd626fbce826 of_batterydata: Import Xiaomi MI changes
+8fd24e12b078 of_batterydata: Import xiaomi longcheer edits
+930f9c4a699c misc: Import ant_check
+ba1733646667 msm: camera_v2: conditionality eliminate drop_reconfig flag
+c35a03c09653 msm: camera: make new camera blobs support optional and not device specific
+8a1298c5b68e drivers: camera_v2: Apply camera updates for tulip too
+119e6890b165 msm: camera: Import Xiaomi changes
+6e90cf825027 camera: lavender: Fix new version
+a1720b39b877 drivers: camera_v2: Import xiaomi changes
+e4433af911e4 leds: qpnp-wled: Import Xiaomi MI changes
+026ffa037906 leds: Import xiaomi longcheer changes
+2a99351cb825 input: touchpanel: Fix buffer overflow in synaptics_rmi4_gpio_setup
+28075fe13a78 input: touchscreen: focaltech: fix snprintf warning
+dfde2770f457 drivers: touchscreen: nvt: Fix size argument too large
+60e8acaa4670 input: synaptics_tcm: Enable DT2W node using tp_common
+fd4e405cbad8 input: nvt_touch_f7a: Enable DT2W node using tp_common
+8a5787154b9d input: focal_ft8719: Implement double_tap node
+56ebd8f078be input: nvt_touch_e7s: Implement double_tap node
+357e59c64b0e input: nvt_touch_d2s: Implement double_tap node
+7ca525fc3cee input: nvt_touch_a: Implement double_tap node
+6ba21dd9fb72 input: synaptics_dsx_e7s: Implement double_tap node
+0e75ed1d0769 input: synaptics_dsx_core: Expose feature nodes to /sys/touchpanel
+ac17a372659c input: touchscreen: Add an interface to expose TP features to userspace
+d414e142885a input: synaptics_dsx_force: Implement swap button interface
+d0cff2165c06 input: synaptics_dsx_force: Properly setup soft button irqs on resume
+1b06de819b30 input: touchscreen: Import synaptics_dsx_force driver and firmware
+fe02a7cd5220 firmware: Import xiaomi longcheer touchscreen firmwares
+3805f424f2a2 synaptics_dsx_e7s: Directly configure dt2w from sysfs
+72e231328c60 input: touchscreen: Remove unused longcheer extension
+ea3c2258e5e9 drivers: touchscreen: nvt: Use a FIFO thread for work processing
+9c301a2e157b drivers: touchscreen: nvt: Disable firmware update
+84aabfd8c5a1 drivers: touchscreen: nvt: Properly arrange variables to disable firmware update
+f4af2750bbb9 drivers: touchscreen: nvt: Properly arrange variables to disable firmware update
+ba8322421d39 drivers: touchscreen: nvt: Disable debugging
+dd9882e5c657 drivers: touchscreen: nvt: Disable proc support
+05bf08daeb10 drivers: touchscreen: nvt: Disable MP CTRLRAM support
+39026b9e6c44 drivers: touchscreen: nvt: clean up and optimize work related functions
+0462e2302a54 input: touchscreen: Import xiaomi drivers
+bc0bd52d09ab input: hall_e7s: Cleanup a bit
+df2a8db407c6 input: Import hall_e7s hall sensor driver
+f5b6fa8890ad iio: qcom-rradc: Import xiaomi tulip changes
+8cd44a1f30ce arm: dts: whyred: oreo fw support
+e11a0a648c84 ARM: dts: xiaomi: Kang LED data from Onyx
+45738ada376d ARM: dts: msm: Fix reversed memory overlapping
+3740dcda15a9 ARM: dts: mi: Fix overriding MPM gpio map
+24ee5ae02f93 ARM: dts: jasmine: Enable verity for vendor
+382f70b37f6d ARM: dts: longcheer: Add cmd for livedisplay CABC
+c9d5dec50758 ARM: dts: longcheer: Remove unused dsi cmds
+77d1163fb112 ARM: dts: jason: Remove redundant gpio-keys gpio override
+7eb81ed1f067 ARM: dts: jason: Add support for livedisplay CABC
+b119273bc80e ARM: dts: jason: Remove panel cmds
+2ddb15995a70 ARM: dts: mi: Configure ramoops buffer
+b997acee52bb ARM: dts: xiaomi: Rework the ramoops implementation
+db9d309deffb ARM: dts: xiaomi: Commonize LED configuration
+8d1bd8866018 ARM: dts: jason: Update dts entry of fpc/goodix driver
+a4055e80f54e ARM: dts: jason: Setup fstab
+f203a0e9691d ARM: dts: msm: Import jason device tree
+7f4bad6d0c7d ARM: dts: longcheer: Add some fp props
+969caef0244b ARM: dts: xiaomi: Fix wcd_usbc_analog_en{1/2}_gpio location
+827e42c712e9 ARM: dts: xiaomi: Disable verify for system and vendor
+4c470222769b ARM: dts: xiaomi: Keep CAF pm660l_gpios
+03855b027571 ARM: dts: wayne/jasmine: Add support for Oreo board-id
+47b3493e3caf ARM: dts: lavender: Enable shenchao panel
+ca7b9f0f4bc6 ARM: dts: Overlayed dtsi for lavender tulip wayne and whyred
+fbbde8a261ea platform: Add support for xiaomi sdm660 platform
+4f5095dfc80c ASoC: msm: Fix sdm660 Kconfig dependencies
+948b2ce36d0e input: smi130: Remove modules.order
+486d745a6972 fs: add exFAT
+8aa61c33fa06 net: Include WireGuard
+3b7d6123c1ef net/wireguard: Remove everything but src
+88deb394506c qcacld-3.0: Use bundled configuration for inline build too
+9ac3b40824d9 qcacld-3.0: Enable WLAN_WARN_ON_ASSERT for debug builds
+35bedaac4807 staging: qca-wifi-host-cmn: Featurize QDF_ASSERT
+6b90fc25a0b2 qcacld-3.0: Disable build tag for inline build
+0125f33a88b4 qcacld-3.0: Disable debugging and diag
+d72efb5f46d5 staging: qcacld-3.0: fix build after disabling debug
+8a43accbdfdd staging: qca-wifi-host-cmn: fix build after disabling debug
+85f6ac6c5639 staging: qcacld-3.0: load driver at device_initcall
+88ff3e6b774b staging: qcacld-3.0: load driver on late initcall when not built as a module
+844db761107b staging: qcacld-3.0: add sme_power_save_api.h include
+6338bee878f7 staging: qcacld-3.0: Cleanup unused file
+472d0b172cc8 drivers: staging: add qcacld-3.0
+
+   * lineage/mirror
+b1bcf29 Updated aosp-minimal to 13-Oct-2020 12:01 UTC
+
+   * packages/apps/PermissionController
+fd02eecb PermissionController: force the hub
+
+   * packages/apps/Settings
+e850ea969f Settings: update some icons
+bb24215f17 Settings: Add new face settings video
+da5884ea77 Update raw animations and drawables from Pixel 4 XL
+4b9e6ecf93 Settings: Add animations on some preferences
+bc9254d4f9 BatteryMeterView: Fix issue with DPI
+2c65153816 Settings: Beautify BatteryMeterView
+03b4f16b7a Settings: Battery: Redesign BatteryMeterView Port DotOS-P BatteryMeterView to R
+50935c6918 Revert "Settings: Battery: Redesign BatteryMeterView"
+1dd6a1f562 Add lockscreen notification back to privacy dashboard
+
+   * packages/overlays/Resurrection
+2ba1cdf overlays: Stock Volume dialog tint styles [2/4]
+
+   * packages/services/Telecomm
+185aa7e1 Automatic translation import
+28e1600e Automatic translation import
+
+   * packages/services/Telephony
+aec78426f Automatic translation import
+
+   * vendor/rr
+f94b729c vendor: Stock Volume dialog tint styles [3/4]
+
+====================
+     10-13-2020
+====================
+
+   * frameworks/base
+a2a62588445 FOD:Default FOD anim  to Asus supernova [1/2]
+a225ce0e34a SystemUI: Don't modify brightness thumb with statusbar icon pack
+2732c30cbcb base: Switch styles for media seekbar text
+2ed8a5764ca base: Q seekbar: Tweak it's size
+2aa67f3d426 Revert "base: media_seekbar: make it sexy"
+a36b85f7139 QS: change some default tiles again
+5bfb0c05928 Revert "base: Tune some dimens to make icon spacing on SB equal"
+a80f434009b overlays: Dont modify corer radius for Hexagon
+3361f4e024c base: Add leaf icon shape
+5eb838f95dc Build Square icon shape
+10657f6b7bf base: build heart shape overlay
+6b917a4fbca base: Tune some dimens to make icon spacing on SB equal
+26ebee33e24 SystemUI: optimize statusbar content padding
+7bfe4b0a445 SystemUI: Reduce System Icon paddings
+
+   * packages/apps/LineageParts
+d38a840 Add icon to wake gesture
+98d6405 Add haptic event when waking device
+7d76ea6 TouchGestures: Add wake device as a gesture action
+
+   * packages/apps/Plugins
+42bb613 Plugins: Fix app icon sizes
+
+   * packages/apps/Settings
+c73523598e RRtools: Default FOD anim  to Asus supernova [2/2]
+77f5c5ca61 Fix typo
+204058c8ff maintainers: remove duplicate rosy
+c13ccc1986 Add LG G7 ThinQ to Official list (#1245)
+
+   * vendor/xiaomi/MiuiCamera
+604c771 Override GoogleCam
+
+====================
+     10-12-2020
+====================
+
+   * frameworks/base
+10d5aea264a core: Unlock AOSP messaging from using heads up
+21c7b3a2bd5 FODAnimation: Force remove view after keyguard showing done
+
+   * kernel/xiaomi/sdm660
+591f8afc6338 Add 'fs/exfat/' from commit '54073b703fe949c1afc256d7bf67d9d09748facd'
+895614d9066f Merge branch 'master' of https://github.com/WireGuard/wireguard-linux-compat into HEAD * Wireguard version: 1.0.20200908
+67026c0a6aac Merge tag 'LA.UM.7.2.r1-09300-sdm660.0' of https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/fw-api into rebase * CAF TAG: "LA.UM.7.2.r1-09300-sdm660.0" * merge-dir: --prefix=drivers/staging/fw-api
+6e3cf54527a0 Merge tag 'LA.UM.7.2.r1-09300-sdm660.0' of https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qca-wifi-host-cmn into rebase * CAF TAG: "LA.UM.7.2.r1-09300-sdm660.0" * merge-dir: --prefix=drivers/staging/qca-wifi-host-cmn
+9cdfb60a9e8f Merge tag 'LA.UM.7.2.r1-09300-sdm660.0' of https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/wlan/qcacld-3.0 into HEAD * CAF TAG: "LA.UM.7.2.r1-09300-sdm660.0" * merge-dir: --prefix= drivers/staging/qcacld-3.0
+ec47988e8ae2 Merge branch 'kernel.lnx.4.4.r38-rel' of ALS into HEAD * ALS: https://github.com/android-linux-stable/msm-4.4 * Branch: kernel.lnx.4.4.r38-rel
+
+   * packages/apps/Settings
+fb30ddc7c3 rr_strings: Update FOD animation string
+
+====================
+     10-11-2020
+====================
+
+   * device/rr/sepolicy
+d58d677 sepolicy: Introduce automated DC Dimming
+
+   * frameworks/base
+fe06b1b2def FODAnimation: blacklist Google services.
+ab2794f2c66 QS: disable screen stabilization tile by default
+3bf85eb7def base: Introduce automated DC Dimming
+
+   * lineage/mirror
+41e2cc8 Updated aosp-minimal to 10-Oct-2020 12:01 UTC
+
+   * lineage/scripts
+2fea594 aosp-merger: Adapt for new default manifest location
+
+   * packages/apps/Settings
+0e5ddf28b2 Settings: Introduce automated DC Dimming
+
+====================
+     10-10-2020
+====================
+
+   * device/xiaomi/jasmine_sprout
+ac0c2a7 jasmine_sprout: Build with gapps
+
+   * frameworks/base
+d34f0a5112f base: AppLock v1.1
+11da330a8c6 base: Smart Pulldown [1/2] (#287)
+
+   * lineage/hudson
+0c6dab3 updater: Fix broken json
+fac680d hudson: Next best thing after the 3310
+
+   * lineage/mirror
+e215784 Updated aosp-minimal to 09-Oct-2020 12:01 UTC
+
+   * lineage/wiki
+0eef5a8 wiki: Add Nokia 6.1 (PL2)
+
+   * packages/apps/Settings
+bf56dc3a55 Settings: AppLock v1.1
+78506df4f3 Update smart pulldown icon Signed-off-by: Varun Date <date.varun123@gmail.com>
+bd8c4f8ef6 Settings: Smart Pulldown [2/2] (#1244)
+
+====================
+     10-09-2020
+====================
+
+   * build/scripts
+8444ba9 Update for RR-HMP
+
+   * device/xiaomi/jasmine_sprout
+66b0b64 configs: audio: properly import stereomod
+c8ad416 configs: audio: set default headset volume
+aa9a6d7 jasmine_sprout: Remove unused recovery-cpio * I am using recovery/twrp/{manufacturer}/{device}/twrp.mk
+dd251bd Revert "configs: allocate dedicated pcm node for in call recording" According to users feedback, it breaks call recording
+65bb606 jasmine_sprout: Add GMS flag
+a53ef8d jasmine_sprout: overlay: Update maintainer info
+30977cf jasmine_sprout: Start Resurrection Remix
+
+   * vendor/gapps
+286e16c gapps: Remove GoogleCamera
+f6f1285 gapps: Modify for personal use
+
